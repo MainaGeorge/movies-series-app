@@ -5,12 +5,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MoviesService {
+  baseUrl: string = 'https://api.themoviedb.org/3';
+  apiKey: string = 'bd7fa9e8de7ab57034a92174dffb692f';
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getMovies(){
+  getMovies(type:string = 'upcoming') {
     return this.http.get(
-      'https://api.themoviedb.org/3/movie/top_rated?api_key=bd7fa9e8de7ab57034a92174dffb692f&language=en-US&page=1'
+      `${this.baseUrl}/movie/${type}?api_key=${this.apiKey}`
     );
   }
 }

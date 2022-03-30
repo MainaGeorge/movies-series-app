@@ -10,8 +10,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { MoviesComponent } from './pages/movies/movies.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SliderComponent } from './components/slider/slider.component';
-import { ItemsBannerComponent } from './components/items-banner/items-banner.component';
-import { MovieItemComponent } from './components/movie-item/movie-item.component';
+import { ItemsComponent } from './components/items/items.component';
+import { ItemComponent } from './components/item/item.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +21,8 @@ import { MovieItemComponent } from './components/movie-item/movie-item.component
     MoviesComponent,
     HomeComponent,
     SliderComponent,
-    ItemsBannerComponent,
-    MovieItemComponent
+    ItemsComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
