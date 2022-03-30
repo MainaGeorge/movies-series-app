@@ -1,3 +1,4 @@
+import { MovieDto } from './../../shared/models/movie.dto';
 import { MoviesService } from 'src/app/services/movies.service';
 import { Movie } from './../../shared/models/movie';
 import { Component, OnInit } from '@angular/core';
@@ -16,16 +17,16 @@ export class HomeComponent implements OnInit {
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
-    this.moviesService.getMovies('popular').subscribe((result: any) => {
-      this.popularMovies = result.results;
+    this.moviesService.getMovies('popular').subscribe((result: Movie[]) => {
+      this.popularMovies = result;
       console.log(this.movies);
     });
-    this.moviesService.getMovies('top_rated').subscribe((result: any) => {
-      this.topRatedMovies = result.results;
+    this.moviesService.getMovies('top_rated').subscribe((result: Movie[]) => {
+      this.topRatedMovies = result;
       console.log(this.movies);
     });
-    this.moviesService.getMovies('upcoming').subscribe((result: any) => {
-      this.upcomingMovies = result.results;
+    this.moviesService.getMovies('upcoming').subscribe((result: Movie[]) => {
+      this.upcomingMovies = result;
       console.log(this.movies);
     });
   }
