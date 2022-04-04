@@ -17,4 +17,9 @@ export class MoviesService {
       `${this.baseUrl}/movie/${type}?api_key=${this.apiKey}`
     ).pipe(switchMap((response:MovieDto) => of(response.results.slice(0, count))));
   }
+
+  searchMovies(page:number){
+    return this.http
+      .get<MovieDto>(`${this.baseUrl}/movie/popular?page=${page}&api_key=${this.apiKey}`);
+  }
 }
