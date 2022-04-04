@@ -16,6 +16,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { ItemsComponent } from './components/items/items.component';
 import { ItemComponent } from './components/item/item.component';
 import { MovieComponent } from './pages/movie/movie.component';
+import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MovieComponent } from './pages/movie/movie.component';
     SliderComponent,
     ItemsComponent,
     ItemComponent,
-    MovieComponent
+    MovieComponent,
+    VideoEmbedComponent
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule, PaginatorModule, TabViewModule],
   providers: [],
