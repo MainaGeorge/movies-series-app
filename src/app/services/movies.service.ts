@@ -2,7 +2,7 @@ import { MovieDto } from './../shared/models/movie.dto';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, switchMap, of } from 'rxjs';
-import { Movie } from '../shared/models/movie';
+import { Movie, MovieVideos } from '../shared/models/movie';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +21,15 @@ export class MoviesService {
   searchMovies(page:number){
     return this.http
       .get<MovieDto>(`${this.baseUrl}/movie/popular?page=${page}&api_key=${this.apiKey}`);
+  }
+
+  getMovie(id:string):Observable<Movie>{
+    return this.http.get<Movie>(`${this.baseUrl}/movie/${id}?api_key=${this.apiKey}`);
+  }
+
+  getMovieVides(id: string){
+    return this.http
+      .get<MovieVideos>(`${this.baseUrl}/movie/${id}/videos?api_key=${this.apiKey}`)
+      .pipe(switchMap((res) => of(res.results)));
   }
 }
