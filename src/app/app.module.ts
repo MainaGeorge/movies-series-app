@@ -4,6 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PaginatorModule } from 'primeng/paginator';
 import { TabViewModule } from 'primeng/tabview';
+import { ImageModule } from 'primeng/image';
+import {CarouselModule} from 'primeng/carousel';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -31,7 +34,7 @@ import { VideoEmbedComponent } from './components/video-embed/video-embed.compon
     MovieComponent,
     VideoEmbedComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule, PaginatorModule, TabViewModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule, PaginatorModule, TabViewModule, ImageModule, CarouselModule],
   providers: [],
   bootstrap: [AppComponent]
 })

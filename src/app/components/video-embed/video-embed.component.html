@@ -1,6 +1,7 @@
 <ng-container  [ngSwitch]="site">
     <ng-container *ngSwitchCase="'YouTube'">
-        <iframe 
+        <div class="iframe-container">
+        <iframe
             width="100%" 
             height="315" 
             [src]="safeUrl" 
@@ -14,6 +15,7 @@
             picture-in-picture"
             allowfullscreen>
         </iframe>
+        </div>
     </ng-container>
     <!-- <div *ngSwitchDefault>output2</div> -->
 </ng-container>

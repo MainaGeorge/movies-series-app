@@ -1,8 +1,9 @@
-import { IMAGE_SIZES } from './../../constants/image-sizes';
-import { Movie, MovieVideo } from './../../shared/models/movie';
-import { MoviesService } from './../../services/movies.service';
+import { IMAGE_SIZES } from '../../constants/image-sizes';
+import {Movie, MovieCredits, MovieImages, MovieVideo} from '../../shared/models/movie';
+import { MoviesService } from '../../services/movies.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {first} from "rxjs";
 
 @Component({
   selector: 'app-movie',
@@ -13,15 +14,19 @@ export class MovieComponent implements OnInit {
 
   movie: Movie | null = null;
   movieVideos: MovieVideo[] = [];
+  movieImages: MovieImages | null = null;
   imageSizes = IMAGE_SIZES;
+  movieCredits: MovieCredits | null = null;
   constructor(private activatedRoute: ActivatedRoute,
     private movieService: MoviesService) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(({id}) => {
+    this.activatedRoute.params.pipe(first()).subscribe(({id}) => {
       console.log(id);
       this.getMovie(id);
       this.getMovieVideos(id);
+      this.getMovieImages(id);
+      this.getMovieCredits(id);
     });
   }
 
@@ -31,7 +36,15 @@ export class MovieComponent implements OnInit {
   }
 
   getMovieVideos(id: string){
-    this.movieService.getMovieVides(id).subscribe(movieVideos => this.movieVideos = movieVideos);
+    this.movieService.getMovieVideos(id).subscribe(movieVideos => this.movieVideos = movieVideos);
+  }
+
+  getMovieImages(id: string){
+    this.movieService.getMovieImages(id).subscribe(images => this.movieImages = images);
+  }
+
+  getMovieCredits(id: string){
+    this.movieService.getMovieCredits(id).subscribe(credits => this.movieCredits = credits);
   }
 
 }

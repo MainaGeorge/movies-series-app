@@ -6,6 +6,8 @@
     min-height: 350px;
     background-color: $bgColorLight;
     border: 1px solid $lightGray;
+    transition: all .5s;
+    overflow: hidden;
 
     &-image{
         img {
@@ -14,6 +16,7 @@
             border-top-right-radius: 5px;
             height: 300px;
             object-fit: cover;
+            transition: all .9s;
         }
     }
 
@@ -37,10 +40,14 @@
         display: flex;
         height: 30px;
         align-items: center;
-        font-weight: bold;
         margin: 0.5rem;
         justify-content: center;
-        letter-spacing: 1.5;
         font-weight: 500;
+    }
+
+    &:hover {
+        -webkit-box-shadow: 2px 0 9px 6px rgba(213, 221, 37, 1);
+        -moz-box-shadow: 2px 0 9px 6px rgba(213, 221, 37, 1);
+        box-shadow: 2px 0 9px 6px $yellowGolden;
     }
 }
