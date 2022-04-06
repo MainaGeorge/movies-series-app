@@ -12,6 +12,7 @@ import {take} from "rxjs";
 export class MoviesComponent implements OnInit {
   movies!: Movie[];
   genreId: string | null = null;
+  searchValue:string = "";
 
   constructor(private moviesService: MoviesService,
               private activatedRoute: ActivatedRoute) {}
@@ -32,15 +33,19 @@ export class MoviesComponent implements OnInit {
     if(this.genreId){
       this.getMoviesByGenre(this.genreId, page)
     }else {
-      this.getPaginatedMovies(page);
+      this.getPaginatedMovies(page, this.searchValue);
     }
   }
 
-  getPaginatedMovies(pageNumber: number){
-    this.moviesService.searchMovies(pageNumber).subscribe((movies) => (this.movies = movies.results));
+  getPaginatedMovies(pageNumber: number, searchKeyword?:string){
+    this.moviesService.searchMovies(pageNumber, searchKeyword).subscribe((movies) => (this.movies = movies.results));
   }
 
   getMoviesByGenre(id: string, page=1){
     this.moviesService.getMoviesByGenre(id, page).subscribe(movies => this.movies = movies);
+  }
+
+  searchChanged() {
+    this.getPaginatedMovies(1, this.searchValue)
   }
 }

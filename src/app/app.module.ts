@@ -6,6 +6,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { TabViewModule } from 'primeng/tabview';
 import { ImageModule } from 'primeng/image';
 import {CarouselModule} from 'primeng/carousel';
+import {InputTextModule} from 'primeng/inputtext';
 
 
 
@@ -21,6 +22,7 @@ import { ItemComponent } from './components/item/item.component';
 import { MovieComponent } from './pages/movie/movie.component';
 import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
 import { GenresComponent } from './pages/genres/genres.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -36,7 +38,17 @@ import { GenresComponent } from './pages/genres/genres.component';
     VideoEmbedComponent,
     GenresComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule, PaginatorModule, TabViewModule, ImageModule, CarouselModule],
+  imports: [BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    PaginatorModule,
+    TabViewModule,
+    ImageModule,
+    CarouselModule,
+    InputTextModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
