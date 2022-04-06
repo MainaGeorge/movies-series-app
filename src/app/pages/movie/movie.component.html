@@ -70,7 +70,7 @@
     <p-carousel *ngIf="movieCredits" [value]="movieCredits.cast" [numVisible]="5">
         <ng-template let-actor pTemplate="item">
             <div class="actor">
-                <img *ngIf="actor.profile_path" [src]="imageSizes.medium + actor.profile_path" alt="{{actor.name}}">
+                <img *ngIf="actor.profile_path.length > 0" [src]="imageSizes.medium + actor.profile_path" alt="{{actor.name}}">
                 <span>{{actor.name}}</span>
             </div>
         </ng-template>

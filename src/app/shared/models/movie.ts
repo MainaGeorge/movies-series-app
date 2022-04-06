@@ -46,3 +46,8 @@ export interface MovieCredits {
     profile_path: string
   }[]
 }
+
+export interface GenreDto {
+  genres: Genre[];
+}
+

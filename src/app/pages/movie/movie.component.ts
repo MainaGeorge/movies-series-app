@@ -22,14 +22,16 @@ export class MovieComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.pipe(first()).subscribe(({id}) => {
-      console.log(id);
-      this.getMovie(id);
-      this.getMovieVideos(id);
-      this.getMovieImages(id);
-      this.getMovieCredits(id);
+      this.initiateComponent(id);
     });
   }
 
+  initiateComponent(id: string){
+    this.getMovie(id);
+    this.getMovieVideos(id);
+    this.getMovieImages(id);
+    this.getMovieCredits(id);
+  }
 
   getMovie(id: string){
     this.movieService.getMovie(id).subscribe((movie) => this.movie = movie);
